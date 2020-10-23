@@ -11,7 +11,11 @@ export function Lighting() {
 
   const renderElements = () => {
     return lighting.groups.map(group => {
-      return <Product {...group} />;
+      return (
+        <div className="col">
+          <Product {...group} />
+        </div>
+      );
     });
   };
 
@@ -20,7 +24,7 @@ export function Lighting() {
   return (
     <div>
       <div>Lighting Component</div>
-      <div>{renderElements()}</div>
+      <div class="row">{renderElements()}</div>
     </div>
   );
 }
