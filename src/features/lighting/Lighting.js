@@ -19,11 +19,11 @@ export function Lighting() {
     });
   };
 
-  console.log(lighting);
-
   return (
     <div>
-      <div>Lighting Component</div>
+      <div className={styles.sectionTitle}>
+        <h4>Available Products</h4>
+      </div>
       <div class="row">{renderElements()}</div>
     </div>
   );

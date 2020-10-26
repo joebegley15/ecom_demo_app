@@ -22,3 +22,9 @@
 .description {
   font-size: 12px;
 }
+
+.sectionTitle {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}

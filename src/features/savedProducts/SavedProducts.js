@@ -23,7 +23,9 @@ export function SavedProducts() {
   if (savedProducts.length) {
     return (
       <div>
-        <div>Saved Products</div>
+        <div className={styles.sectionTitle}>
+          <h4>Saved Products</h4>
+        </div>
         <div class="row">{renderElements()}</div>
       </div>
     );
