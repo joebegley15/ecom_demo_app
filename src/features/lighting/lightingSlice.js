@@ -1,9 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import products from "./products";
+import { loadState } from "../../localStorage";
+
+const getInitialState = () => {
+  const initialState = loadState();
+  if (initialState) {
+    return initialState.lighting;
+  }
+  return { products, savedProducts: [] };
+};
 
 export const lightingSlice = createSlice({
   name: "lighting",
-  initialState: { products, savedProducts: [] },
+  initialState: getInitialState(),
   reducers: {
     saveProduct: (state, item) => {
       const contains = state.savedProducts.find(element => {
