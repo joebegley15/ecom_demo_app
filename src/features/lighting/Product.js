@@ -12,6 +12,31 @@ import {
 import styles from "./Product.module.css";
 import { saveProduct, removeProduct } from "./lightingSlice";
 
+const lowPrice = props => {
+  if (props.price) {
+    return props.price.low || props.price.selling;
+  }
+  if (props.priceRange && props.priceRange.regular) {
+    return props.priceRange.regular.low;
+  }
+};
+const highPrice = props => {
+  if (props.price) {
+    return props.price.regular;
+  }
+  if (props.priceRange && props.priceRange.selling) {
+    return props.priceRange.selling.high;
+  }
+};
+
+const priceTransform = n => {
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
+  return formatter.format(n);
+};
+
 export const Product = props => {
   const dispatch = useDispatch();
   return (
@@ -19,14 +44,12 @@ export const Product = props => {
       <CardImg top src={props.images[0].href} alt="Card image cap" />
       <CardBody className={styles.productName}>
         <CardTitle>{props.name}</CardTitle>
-        <CardSubtitle>Card subtitle</CardSubtitle>
-        <CardText className={styles.description}>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </CardText>
+        <span className={styles.price}>
+          <p className={styles.high}>{priceTransform(highPrice(props))}</p>
+          <p className={styles.low}>{priceTransform(lowPrice(props))}</p>
+        </span>
         <Button
           onClick={() => {
-            console.log(props.saved);
             if (props.saved) {
               dispatch(removeProduct({ ...props, saved: false }));
             } else {
@@ -34,7 +57,7 @@ export const Product = props => {
             }
           }}
         >
-          Button
+          {props.saved ? "Remove" : "Save"}
         </Button>
       </CardBody>
     </Card>

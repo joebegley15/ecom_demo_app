@@ -1,5 +1,22 @@
 .productName {
-  height: 400px;
+  height: 250px;
+}
+
+.product {
+  margin-bottom: 5px;
+  min-width: 175px;
+}
+
+.price {
+  font-size: 12px;
+}
+
+.high {
+  text-decoration: line-through;
+}
+
+.low {
+  color: green;
 }
 
 .description {

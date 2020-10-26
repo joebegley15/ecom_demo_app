@@ -8,7 +8,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Joe Begley Lighting</h1>
+        <div
+          style={{
+            margin: "auto",
+            width: "100%",
+            "text-align": "center"
+          }}
+        >
+          <h1>Joe Begley Lighting</h1>
+        </div>
         <Lighting />
         <SavedProducts />
       </header>
