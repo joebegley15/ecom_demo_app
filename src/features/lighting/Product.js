@@ -10,7 +10,7 @@ import {
   Button
 } from "reactstrap";
 import styles from "./Product.module.css";
-import { saveProduct } from "./lightingSlice";
+import { saveProduct, removeProduct } from "./lightingSlice";
 
 export const Product = props => {
   const dispatch = useDispatch();
@@ -26,7 +26,12 @@ export const Product = props => {
         </CardText>
         <Button
           onClick={() => {
-            dispatch(saveProduct({ ...props, saved: true }));
+            console.log(props.saved);
+            if (props.saved) {
+              dispatch(removeProduct({ ...props, saved: false }));
+            } else {
+              dispatch(saveProduct({ ...props, saved: true }));
+            }
           }}
         >
           Button

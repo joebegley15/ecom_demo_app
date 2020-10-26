@@ -12,6 +12,18 @@ export const lightingSlice = createSlice({
       if (!contains) {
         state.savedProducts.push(item.payload);
       }
+    },
+    removeProduct: (state, item) => {
+      let index;
+      state.savedProducts.find((element, i) => {
+        if (element.id === item.payload.id) {
+          index = i;
+          return true;
+        }
+      });
+      if (index !== undefined) {
+        state.savedProducts.splice(index, 1);
+      }
     }
   }
 });
@@ -21,4 +33,4 @@ export const savedProductState = state => state.lighting.savedProducts;
 
 export default lightingSlice.reducer;
 
-export const { saveProduct } = lightingSlice.actions;
+export const { saveProduct, removeProduct } = lightingSlice.actions;
