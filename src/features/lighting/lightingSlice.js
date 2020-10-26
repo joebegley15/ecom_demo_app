@@ -3,10 +3,10 @@ import products from "./products";
 
 export const lightingSlice = createSlice({
   name: "lighting",
-  initialState: products,
+  initialState: { products, savedProducts: {} },
   reducers: {}
 });
 
-export const lightingState = state => state.lighting;
+export const lightingState = state => state.lighting.products;
 
 export default lightingSlice.reducer;
