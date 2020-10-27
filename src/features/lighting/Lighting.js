@@ -5,6 +5,8 @@ import styles from "./Product.module.css";
 import { lightingState } from "./lightingSlice";
 import { Product } from "./Product";
 
+import { Col, Row } from "reactstrap";
+
 export function Lighting() {
   const dispatch = useDispatch();
   const lighting = useSelector(lightingState);
@@ -12,9 +14,9 @@ export function Lighting() {
   const renderElements = () => {
     return lighting.groups.map(group => {
       return (
-        <div className={styles.product + " col"}>
+        <Col className={styles.product}>
           <Product {...group} />
-        </div>
+        </Col>
       );
     });
   };
@@ -24,7 +26,7 @@ export function Lighting() {
       <div className={styles.sectionTitle}>
         <h4>Available Products</h4>
       </div>
-      <div class="row">{renderElements()}</div>
+      <Row>{renderElements()}</Row>
     </div>
   );
 }

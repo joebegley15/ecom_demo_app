@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.carouselImg {
+  width: 100%;
+}
+
 .button {
   bottom: 25px;
   position: absolute;
@@ -10,7 +14,8 @@
 
 .product {
   margin-bottom: 5px;
-  min-width: 175px;
+  min-width: 200px;
+  width: 100%;
 }
 
 .card {

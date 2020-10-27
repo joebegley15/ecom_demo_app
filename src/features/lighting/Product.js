@@ -9,6 +9,7 @@ import {
   CardSubtitle,
   Button
 } from "reactstrap";
+import { CarouselContainer } from "./Carousel";
 import styles from "./Product.module.css";
 import { saveProduct, removeProduct } from "./lightingSlice";
 
@@ -42,7 +43,7 @@ export const Product = props => {
   return (
     <Card key={props.id} className={styles.card}>
       <a>
-        <CardImg top src={props.images[0].href} alt="Card image cap" />
+        <CarouselContainer images={props.images} />
       </a>
       <CardBody className={styles.productBody}>
         <CardTitle>{props.name}</CardTitle>
