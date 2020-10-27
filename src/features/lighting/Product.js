@@ -34,9 +34,7 @@ export const Product = props => {
   const dispatch = useDispatch();
   return (
     <Card key={props.id} className={styles.card}>
-      <a>
-        <CarouselContainer images={props.images} />
-      </a>
+      <CarouselContainer images={props.images} link={props.links.www} />
       <CardBody className={styles.productBody}>
         <CardTitle>{props.name}</CardTitle>
         <CardText className={styles.price}>

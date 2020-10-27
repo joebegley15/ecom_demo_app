@@ -45,7 +45,14 @@ export const CarouselContainer = props => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img className={styles.carouselImg} src={item.src} alt={item.altText} />
+        {" "}
+        <a href={props.link}>
+          <img
+            className={styles.carouselImg}
+            src={item.src}
+            alt={item.altText}
+          />
+        </a>
         <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}
