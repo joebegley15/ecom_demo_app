@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import { savedProductState } from "../lighting/lightingSlice";
 import { Product } from "../lighting/Product";
@@ -7,7 +7,6 @@ import { Product } from "../lighting/Product";
 import styles from "../lighting/Product.module.css";
 
 export function SavedProducts() {
-  const dispatch = useDispatch();
   const savedProducts = useSelector(savedProductState);
 
   const renderElements = () => {

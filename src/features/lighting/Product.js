@@ -1,14 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button
-} from "reactstrap";
+import { Card, CardText, CardBody, CardTitle, Button } from "reactstrap";
 import { CarouselContainer } from "./Carousel";
 import styles from "./Product.module.css";
 import { saveProduct, removeProduct } from "./lightingSlice";
@@ -47,10 +39,10 @@ export const Product = props => {
       </a>
       <CardBody className={styles.productBody}>
         <CardTitle>{props.name}</CardTitle>
-        <span className={styles.price}>
+        <CardText className={styles.price}>
           <p className={styles.high}>{priceTransform(highPrice(props))}</p>
           <p className={styles.low}>{priceTransform(lowPrice(props))}</p>
-        </span>
+        </CardText>
         <Button
           className={styles.button}
           onClick={() => {

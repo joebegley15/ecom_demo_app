@@ -29,6 +29,7 @@ export const lightingSlice = createSlice({
           index = i;
           return true;
         }
+        return false;
       });
       if (index !== undefined) {
         state.savedProducts.splice(index, 1);
