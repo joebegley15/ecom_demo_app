@@ -40,15 +40,18 @@ const priceTransform = n => {
 export const Product = props => {
   const dispatch = useDispatch();
   return (
-    <Card key={props.id}>
-      <CardImg top src={props.images[0].href} alt="Card image cap" />
-      <CardBody className={styles.productName}>
+    <Card key={props.id} className={styles.card}>
+      <a>
+        <CardImg top src={props.images[0].href} alt="Card image cap" />
+      </a>
+      <CardBody className={styles.productBody}>
         <CardTitle>{props.name}</CardTitle>
         <span className={styles.price}>
           <p className={styles.high}>{priceTransform(highPrice(props))}</p>
           <p className={styles.low}>{priceTransform(lowPrice(props))}</p>
         </span>
         <Button
+          className={styles.button}
           onClick={() => {
             if (props.saved) {
               dispatch(removeProduct({ ...props, saved: false }));

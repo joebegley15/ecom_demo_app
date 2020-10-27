@@ -1,10 +1,20 @@
-.productName {
+.productBody {
   height: 250px;
+  position: relative;
+}
+
+.button {
+  bottom: 25px;
+  position: absolute;
 }
 
 .product {
   margin-bottom: 5px;
   min-width: 175px;
+}
+
+.card {
+  max-width: 500px;
 }
 
 .price {
